@@ -6,8 +6,8 @@ class GeneralError extends Error {
     logger.info(message);
     super();
     this.message = message;
-    this.statusCode = statusCode ;
-    this.data = data ;
+    this.statusCode = statusCode;
+    this.data = data;
     this.status = status;
   }
   getCode() {
@@ -35,4 +35,3 @@ module.exports = {
   UnAuthorized,
   ServiceNotAvailable,
 };
-

@@ -1,11 +1,11 @@
 const logger = require('../logger/logger');
 
 class GeneralResponse {
-  constructor(message, data = '', statusCode = '', status) {
+  constructor(message, statusCode = '', data = '', status) {
     logger.info(message);
     this.message = message;
-    this.data = data;
-    this.statusCode = statusCode;
+    this.statusCode = statusCode ;
+    this.data = data ;
     this.status = status;
   }
 }

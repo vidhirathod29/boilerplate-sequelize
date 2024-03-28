@@ -13,3 +13,13 @@ sequelize
   .catch((err) => {
     console.log('Error:', err);
   });
+
+const db = {};
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+db.authModel = require('../models/auth')(sequelize, Sequelize);
+
+db.sequelize.sync().then(() => {
+  console.log('Re-sync');
+});
+module.exports = db;

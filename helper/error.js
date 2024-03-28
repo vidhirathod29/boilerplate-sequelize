@@ -1,5 +1,7 @@
 const { GeneralError } = require('../utils/error');
 const { StatusCodes } = require('http-status-codes');
+const { RESPONSE_STATUS } = require('../utils/enum');
+const { Messages } = require('../utils/messages');
 const logger = require('../logger/logger');
 let statusToSet = 400;
 
@@ -47,5 +49,21 @@ const handleJoiErrors = (err, req, res, next) => {
     next(err);
   }
 };
+const errorHandler = (check) => {
+  return async (req, res, next) => {
+    try {
+      await check(req, res, next);
+    } catch (error) {
+      next(
+        new GeneralError(
+          Messages.SERVER_ERROR,
+          StatusCodes.INTERNAL_SERVER_ERROR,
+          undefined,
+          RESPONSE_STATUS.ERROR,
+        ),
+      );
+    }
+  };
+};
 
-module.exports = { handleErrors, handleJoiErrors };
+module.exports = { handleErrors, handleJoiErrors, errorHandler };

@@ -1,3 +1,4 @@
+
 module.exports = {
     Messages: {
       FAILED: 'Failed',
@@ -21,7 +22,11 @@ module.exports = {
       OTP_VERIFY:'Otp verified successfully',
       OTP_NOT_MATCH:'Please enter correct otp or email',
       UPDATED_PASSWORD:'Password is updated successfully',
-      DELETE_SUCCESS:'Deleted successfully'
+      DELETE_SUCCESS:'Deleted successfully',
+      TOKEN_VERIFY_FAILED:'Token verification failed',
+      TOKEN_EXPIRED:'Token expired',
+      NO_VALID_FIELDS:'No valid fields provided'
+     
     },
   };
   
