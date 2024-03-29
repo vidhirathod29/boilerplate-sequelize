@@ -18,6 +18,7 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.authModel = require('../models/auth')(sequelize, Sequelize);
+db.addressBookModel= require('../models/addressBook')(sequelize, Sequelize);
 
 db.sequelize.sync().then(() => {
   console.log('Re-sync');
